@@ -157,6 +157,8 @@ COMET_SPAWN_TIMER = pygame.USEREVENT + 1
 SCREEN_WIDTH = 600
 SCREEN_HEIGHT = 360
 FONT_L = 'fonts/roboto.ttf'
+pygame.display.set_caption('DinoGame')
+pygame.display.set_icon(pygame.image.load('images/comet.png'))
 
 
 class GameRenderer:
