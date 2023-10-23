@@ -231,11 +231,13 @@ class DinoGame:
         self.sounds = Sounds()
         self.game_renderer = GameRenderer(self.screen, self)
         self.game_logic = GameLogic(self)
+        self.achievement_sound = pygame.mixer.Sound('sounds/8-bit-achievement-epic-stock-media-1-00-00.mp3')
 
     def get_random_time(self):
         return random.randint(800, 3000)
 
     def run(self):
+        val = 50
         while self.running:
             if not self.game_over:
                 if not self.gameplay:
@@ -243,6 +245,10 @@ class DinoGame:
                     self.handle_start_events()
                 else:
                     self.score += 0.15
+
+                    if int(self.score) == val:
+                        self.achievement_sound.play()
+                        val += 50
                     self.game_logic.handle_events()
                     self.game_logic.update()
                     self.game_renderer.render()
