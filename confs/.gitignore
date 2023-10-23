@@ -1,0 +1,4 @@
+.env/
+/confs/.env
+confs/.env
+*.env
