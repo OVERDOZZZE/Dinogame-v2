@@ -146,11 +146,13 @@ import pygame
 import random
 import redis
 from parameters import Sounds, Dino, Comet, GameObject
+from decouple import config
+
 
 redis_client = redis.Redis(
-    host='redis-17932.c1.asia-northeast1-1.gce.cloud.redislabs.com',
-    port=17932,
-    password='LnNrEZ27dbYGoDp56aGQSnwVjTcahQJR'
+    host=config('HOST'),
+    port=config('PORT'),
+    password=config('PASSWORD')
 )
 
 COMET_SPAWN_TIMER = pygame.USEREVENT + 1
